@@ -890,3 +890,19 @@ color: var(--primary-white-color);
 .icon-close {
 	fill:#000;
 }
+
+/* стилизация формы в footer */
+.form-label {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+
+	color: #FFFFFF;
+	}
+.form-email {
+	display: flex;
+   flex-direction: column;
+}
+	
