@@ -409,7 +409,7 @@
 				</ul>
 			</div>
 
-			<form class="form-email" name="email" autocomplete="on" novalidate>
+			<form class="form-email" name="email" autocomplete="on">
 				<div class="form-field">
 					<label class=" form-label" for="user-email">Подпишитесь на рассылку</label>
 					<input class="form-input" type="email" name="email" id="user-email" placeholder="E-mail">
@@ -470,13 +470,13 @@
 						</div>
 					</fieldset>
 
-					<div class="checkbox">
-						<input class="custom-checkbox" type="checkbox" id="checkbox" name="checkbox">
+					<!--chek кастомный чекбокс  -->
+					<label class="check">
+						<input class="check-input visually-hidden" type="checkbox" name="checkbox">
+						<span class="check-box"></span>
+						<span>Соглашаюсь с рассылкой и принимаю<a href="#" class="checkbox-link">Условия договора</a></span>
+					</label>
 
-						<label for="checkbox">
-							Соглашаюсь с рассылкой и принимаю <a href="#" class="checkbox-link">Условия договора</a>
-						</label>
-					</div>
 					<button type="submit" class="button form-button">Отправить</button>
 			</div>
 			</form>
