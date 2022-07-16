@@ -66,6 +66,17 @@ address {
 	font-style: normal;
 }
 
+/* Обнуление для формы */
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+legend {
+	padding: 0;
+}
+
 /*styles container*/
 
 .container {
@@ -239,6 +250,8 @@ address {
 	margin: -1px;
 	border: 0;
 	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
 
 	white-space: nowrap;
 	clip-path: inset(100%);
@@ -778,6 +791,7 @@ color: var(--primary-white-color);
 
 .social-inner {
 	margin-left: 70px;
+	margin-right: 93px
 }
 
 .footer {
@@ -847,7 +861,7 @@ color: var(--primary-white-color);
 /* скрываем модальное окно */
 .backdrop.is-hidden {
 	opacity: 0;
-	visibility: hidden;
+	/* visibility: hidden; */
 	pointer-events: none;
 }
 
@@ -859,7 +873,8 @@ color: var(--primary-white-color);
 	transform: translate(-50%, -50%);
 
 	width: 528px;
-	height: 581px;
+	max-height: 581px;
+	height: 100%;
 
 	background-color: var(--primary-white-color);
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -900,9 +915,266 @@ color: var(--primary-white-color);
 	text-transform: uppercase;
 
 	color: #FFFFFF;
+
+	margin-bottom: 20px;
+	
 	}
+
 .form-email {
 	display: flex;
-   flex-direction: column;
-}
+	align-items: flex-end;
+
 	
+   
+}
+.form-field {
+	display: flex;
+	flex-direction: column;
+	
+	margin-right: 12px
+}
+
+.form-input {
+	width: 358px;
+	height: 50px;
+	left: 815px;
+	top: 2787px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+	border-radius: 4px;
+	background: #2F303A;
+}
+
+.form-input::placeholder {
+	letter-spacing: 0.03em;
+	color: rgba(255, 255, 255, 0.6);
+
+	padding: 15px;
+}
+
+.form-button {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	
+	height: 50px;
+	width: 200px;
+
+	position: relative;
+	padding-left: 29px;
+    padding-right: 62px
+	
+}
+
+.form-icon {
+	position: absolute;
+	top: 50%;
+	right:28px;
+	transform: translateY(-50%);
+
+	
+}
+
+/* Стилизируем фориу модального окна */
+
+.form-conect {
+	padding: 40px;
+}
+
+.form-modal-name {
+	display: block;
+
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.15;
+	text-align: center;
+	letter-spacing: 0.03em;
+
+	color: var(--title-text-color);
+
+	margin-bottom: 12px;
+}
+.modal-form-label {
+	font-size: 12px;
+	line-height: 1.16;
+	letter-spacing: 0.01em;
+	margin-bottom: 4px
+}
+
+.form-field-modal {
+	display: flex;
+	flex-direction: column;
+
+	margin-bottom: 10px;
+	position: relative;
+}
+
+/* .form-field-modal:not(:last-child) {
+	margin-bottom: 10px;
+} */
+
+.form-field-modal:last-child{
+	margin-bottom:0;
+}
+.modal-form-input {
+	padding-left: 40px;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	outline: none;
+	border-radius: 4px;
+	height: 40px;
+}
+
+/* меняем border при фокусе */
+.modal-form-input:focus {
+	border-color: var(--accent-color);
+}
+
+/*  меняем иконку цвет при focuse */
+.modal-form-input:focus + .icon-modal {
+	fill: var(--accent-color);
+}
+
+.icon-modal {
+	position: absolute;
+	top: 65%;
+	left: 12px;
+
+	transform: translateY(-50%);
+	
+}
+
+.icon-modal:focus {
+	fill: var(--accent-color);
+}
+.modal-form-input-textarea {
+	resize:none;
+	height: 120px;
+
+	padding: 12px 16px;
+
+}
+
+/*  Стили для checkbox */
+.checkbox {
+	display: flex;
+   justify-content: center;
+	margin-top: 20px;
+}
+
+.checkbox-link {
+	color: var(--accent-color);
+	padding-left: 5px;
+}
+/* скрыла чекбокс от браузера */
+.custom-checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.custom-checkbox+label {
+	display: inline-flex;
+	align-items: center;
+
+}
+
+/* создаю поддельный чекбокс */
+.custom-checkbox+label::before {
+	content: '';
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border: 2px solid var(--title-text-color);
+	
+	margin-right: 8px;
+	background-repeat: no-repeat;
+   background-position: center center;
+   background-size: 50% 50%;
+
+}
+
+.custom-checkbox:checked+label::before {
+	background-color: var(--accent-color);
+	border-color: var(--accent-color);
+	background-image: url(../images/icon-check.svg);
+	background-origin: border-box;
+	background-size: contain;
+}
+
+/* .checkbox-label {
+		display: flex;
+		align-items: flex-end;
+		flex-direction: row;
+	position: relative;
+
+	padding-left: 24px;
+}  */
+
+/* .checkbox-input:checked ~ .icon-modal-check {
+	border-color: #2196f3;
+	background-color: var(--accent-color);
+	background-origin: border-box;
+	background-size: contain;
+	background-image: url(../images/icon-check.svg);
+	background-repeat: no-repeat; 
+} */
+/* .checkbox {
+	display: flex;
+	flex-direction: row;
+
+	margin-bottom: 30px;
+} */
+
+/* .icon-modal-check {
+	position: absolute;
+
+	left: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    
+    /* opacity: 1; */
+/* } */ 
+
+/* .icon-modal-conditions {
+position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    opacity: 0;
+    fill: var(--accent-color);
+} */
+
+
+/*центрирую кнопку */
+ .button {
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+
+
+/* .checkbox-icon {
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+
+	background-color: #2F303A;
+}
+
+.checkbox-input:checked + .checkbox-icon {
+	border-color: var(--accent-color);
+	background-color: var(--accent-color);
+	background-origin: border-box;
+	background-size: contain;
+	background-image: url(../images/icon-check.svg);
+	
+
+} */
+
+/* .conditions-document {
+	color: var(--accent-color);
+
+	box-sizing: border-box;
+} */
